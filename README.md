@@ -8,4 +8,4 @@ Module for displaying ads on the website in photo or text format
 - php 7.4  or higher
 
 
-<img src="https://github.com/over-net/blob/mod_advertising.png?raw=true" />
+<img src="https://github.com/over-net/mod_advertising/blob/main/prev.png" />
