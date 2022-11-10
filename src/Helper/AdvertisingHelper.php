@@ -113,7 +113,7 @@ final class AdvertisingHelper
 		}
 
 		self::$canShowBlockState = $this->canShowBlock();
-		$this->init();
+		$this->initBanner();
 		$this->getAndSetCookie();
 
 	}
@@ -200,7 +200,7 @@ final class AdvertisingHelper
 	/**
 	 * @since version
 	 */
-	private function init(): void
+	private function initBanner(): void
 	{
 		/** @var  $document */
 		$document = self::$app->getDocument();
