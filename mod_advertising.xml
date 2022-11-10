@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+    <name>Advertising</name>
+    <author>Mykhailo Kulyk</author>
+    <creationDate>September 2022</creationDate>
+    <copyright>(C) 2006 Open Source Matters, Inc.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>info@profisite.com.ua</authorEmail>
+    <authorUrl>www.profisite.com.ua</authorUrl>
+    <version>1.0.0</version>
+    <description>MOD_ADVERTISING_DESCRIPTION</description>
+    <namespace path="src">Joomla\Module\Advertising</namespace>
+    <files>
+        <filename module="mod_advertising">mod_advertising.php</filename>
+        <folder>src</folder>
+        <folder>tmpl</folder>
+    </files>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/mod_advertising.sys.ini</language>
+        <language tag="en-GB">en-GB/mod_advertising.ini</language>
+        <language tag="ru-RU">ru-RU/mod_advertising.sys.ini</language>
+        <language tag="ru-RU">ru-RU/mod_advertising.ini</language>
+        <language tag="uk-UA">uk-UA/mod_advertising.sys.ini</language>
+        <language tag="uk-UA">uk-UA/mod_advertising.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+
+            <fieldset name="basic">
+
+                <field type="spacer" name="block_base_spacer" label="MOD_ADVERTISING_BASE_PARAMS"/>
+
+
+                <field name="test_mode"
+                       type="radio"
+                       label="MOD_ADVERTISING_TEST_MODE"
+                       description="MOD_ADVERTISING_TEST_MODE_DESC"
+                       default="1"
+                       filter="integer"
+                >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+
+                <field name="block_header"
+                       type="text"
+                       default=""
+                       label="MOD_ADVERTISING_HEADING"
+                       description="MOD_ADVERTISING_HEADING"
+                />
+
+                <field name="block_link"
+                       type="text"
+                       default=""
+                       label="MOD_ADVERTISING_LINK"
+                       description="MOD_ADVERTISING_LINK_DESC"
+                       filter="url"
+                />
+
+                <field
+                        name="block_link_target"
+                        type="list"
+                        label="MOD_ADVERTISING_TARGET"
+                        description="MOD_ADVERTISING_TARGET_DESC"
+                        default="_self"
+                        filter="string"
+                >
+                    <option value="_self">self</option>
+                    <option value="_blank">blank</option>
+                    <option value="_parent">parent</option>
+                    <option value="_top">top</option>
+                </field>
+
+
+                <field name="load_jquery"
+                       type="radio"
+                       label="MOD_ADVERTISING_JQUERY"
+                       description="MOD_ADVERTISING_JQUERY_DESC"
+                       default="0"
+                       filter="integer"
+                >
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+
+
+                <field name="jquery_tag"
+                       type="text"
+                       default="jQuery"
+                       label="MOD_ADVERTISING_JQUERY_TAG"
+                       description="MOD_ADVERTISING_JQUERY_TAG_DESC"
+                />
+
+
+                <field
+                        name="block_next_show_in_hours"
+                        type="list"
+                        label="MOD_ADVERTISING_NEXT_SHOW"
+                        description="MOD_ADVERTISING_NEXT_SHOW_DESC"
+                        default="1"
+                        filter="integer"
+                >
+                    <option value="1">1 hour</option>
+                    <option value="2">2 hours</option>
+                    <option value="3">3 hours</option>
+                    <option value="4">4 hours</option>
+                    <option value="6">6 hours</option>
+                    <option value="12">12 hours</option>
+                    <option value="24">24 (1 day)</option>
+                    <option value="48">48 (2 days)</option>
+                    <option value="72">72 (3 days)</option>
+                    <option value="96">96 (4 days)</option>
+                    <option value="120">120 (5 days)</option>
+                    <option value="144">144 (6 days)</option>
+                    <option value="168">168 (1 week)</option>
+                </field>
+
+
+                <field name="cookie_id"
+                       type="text"
+                       default="wasShowedAdvBlock"
+                       label="MOD_ADVERTISING_COOKIE_ID"
+                       description="MOD_ADVERTISING_COOKIE_ID_DESC"
+                       filter="string"
+                />
+
+
+                <field type="spacer" name="block_params_spacer" label="MOD_ADVERTISING_BLOCK_PARAMS"/>
+
+                <field
+                        name="block_width"
+                        type="number"
+                        label="MOD_ADVERTISING_BLOCK_WIDTH"
+                        description="MOD_ADVERTISING_BLOCK_WIDTH_DESC"
+                        default="320"
+                        filter="integer"
+                />
+
+                <field
+                        name="block_size_unit"
+                        type="list"
+                        label="MOD_ADVERTISING_UNIT"
+                        description="MOD_ADVERTISING_UNIT_DESC"
+                        default="px"
+                        filter="string"
+                >
+                    <option value="px">px</option>
+                    <option value="em">em</option>
+                    <option value="rem">rem</option>
+                </field>
+
+
+                <field
+                        name="block_type"
+                        type="list"
+                        label="MOD_ADVERTISING_TYPE"
+                        description="MOD_ADVERTISING_TYPE_DESC"
+                        default="image"
+                        filter="string"
+                >
+                    <option value="image">MOD_ADVERTISING_TYPE_IMAGE</option>
+                    <option value="text">MOD_ADVERTISING_TYPE_TEXT</option>
+                </field>
+
+
+                <field
+                        name="block_side_position"
+                        type="list"
+                        label="MOD_ADVERTISING_POSITION"
+                        description="MOD_ADVERTISING_POSITION_DESC"
+                        default="right"
+                        filter="string"
+                >
+                    <option value="right">MOD_ADVERTISING_POSITION_RIGHT</option>
+                    <option value="left">MOD_ADVERTISING_POSITION_LEFT</option>
+                </field>
+
+                <field
+                        name="block_x_position"
+                        type="number"
+                        label="MOD_ADVERTISING_X_POSITION"
+                        description="MOD_ADVERTISING_X_POSITION_DESC"
+                        default="60"
+                        filter="integer"
+                />
+
+                <field
+                        name="block_y_position"
+                        type="number"
+                        label="MOD_ADVERTISING_Y_POSITION"
+                        description="MOD_ADVERTISING_Y_POSITION_DESC"
+                        default="160"
+                        filter="integer"
+                />
+
+
+                <field
+                        name="block_delay"
+                        type="list"
+                        label="MOD_ADVERTISING_SHOW_DELAY"
+                        description="MOD_ADVERTISING_SHOW_DELAY_DESC"
+                        default="3000"
+                        filter="integer"
+                >
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
+                    <option value="1500">1500</option>
+                    <option value="2000">2000</option>
+                    <option value="2500">2500</option>
+                    <option value="3000">3000</option>
+                    <option value="3500">3500</option>
+                    <option value="4000">4000</option>
+                    <option value="4500">4500</option>
+                    <option value="5000">5000</option>
+                </field>
+
+
+                <field type="spacer" name="style_spacer" label="MOD_ADVERTISING_STYLE_PARAMS"/>
+
+
+                <field name="block_background_color"
+                       type="color"
+                       default="#eb3f57"
+                       format="rgba"
+                       label="MOD_ADVERTISING_BLOCK_BACKGROUND"
+                       description="MOD_ADVERTISING_BLOCK_BACKGROUND_DESC"
+                />
+
+                <field name="block_header_text_color"
+                       type="color"
+                       default="#fff"
+                       format="rgba"
+                       label="MOD_ADVERTISING_HEADER_TEXT_COLOR"
+                       description="MOD_ADVERTISING_HEADER_TEXT_COLOR_DESC"
+                />
+
+                <field name="block_content_text_color"
+                       type="color"
+                       default="#000"
+                       format="rgba"
+                       label="MOD_ADVERTISING_CONTENT_TEXT_COLOR"
+                       description="MOD_ADVERTISING_CONTENT_TEXT_COLOR_DESC"
+                />
+
+                <field name="block_content_background_color"
+                       type="color"
+                       default="#fff"
+                       format="rgba"
+                       label="MOD_ADVERTISING_CONTENT_BACKGROUND_COLOR"
+                       description="MOD_ADVERTISING_CONTENT_BACKGROUND_COLOR_DESC"
+                />
+
+
+                <field type="spacer" name="image_params_spacer" label="MOD_ADVERTISING_IMAGE_PARAMS"/>
+
+
+                <field name="image_src"
+                       type="media"
+                       directory="images"
+                       label="MOD_ADVERTISING_IMAGE"
+                       description="MOD_ADVERTISING_IMAGE_DESC"
+                       preview="true"
+                />
+
+                <field
+                        name="image_max_width"
+                        type="number"
+                        label="MOD_ADVERTISING_IMAGE_MAX_WIDTH"
+                        description="MOD_ADVERTISING_IMAGE_MAX_WIDTH_DESC"
+                        default="320"
+                        filter="integer"
+                />
+
+
+                <field type="spacer" name="editor_spacer" label="MOD_ADVERTISING_EDITOR_PARAMS"/>
+
+                <field name="block_content"
+                       type="editor"
+                       label="MOD_ADVERTISING_EDITOR"
+                       description="MOD_ADVERTISING_EDITOR_DESC"
+                       width="100%"
+                       filter="safehtml"/>
+
+                <field name="block_content_padding"
+                       type="text"
+                       label="MOD_ADVERTISING_PADDING"
+                       description="MOD_ADVERTISING_PADDING_DESC"
+                       default="0 0 0 0"
+                       filter="string"/>
+
+            </fieldset>
+
+            <fieldset name="advanced">
+                <field
+                        name="layout"
+                        type="modulelayout"
+                        label="JFIELD_ALT_LAYOUT_LABEL"
+                        description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+                        validate="moduleLayout"
+                />
+
+                <field
+                        name="moduleclass_sfx"
+                        type="textarea"
+                        label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                        description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+                        rows="3"
+                />
+
+                <field
+                        name="cache"
+                        type="list"
+                        label="COM_MODULES_FIELD_CACHING_LABEL"
+                        description="COM_MODULES_FIELD_CACHING_DESC"
+                        default="1"
+                        filter="integer"
+                >
+                    <option value="1">JGLOBAL_USE_GLOBAL</option>
+                    <option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+                </field>
+
+                <field
+                        name="cache_time"
+                        type="number"
+                        label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+                        description="COM_MODULES_FIELD_CACHE_TIME_DESC"
+                        default="900"
+                        filter="integer"
+                />
+            </fieldset>
+
+        </fields>
+    </config>
+</extension>
