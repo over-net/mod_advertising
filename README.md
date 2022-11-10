@@ -7,4 +7,4 @@ Module for displaying ads on the website in photo or text format
 - joomla 4.2 or higher
 - php 7.4  or higher
 
-![alt text](https://github.com/over-net/mod_advertising/blob/main/prev.png?raw=true)
+![alt text](https://github.com/over-net/blob/mod_advertising.png?raw=true)
